@@ -1,17 +1,27 @@
-const express = require("express");
-const fs = require('fs');
-const path = require('path');
+// const express = require("express");
+// const fs = require('fs');
+// const path = require('path');
 
 //routes
-//const apiRoutes = require('./routes/apiroutes');
-//const htmlRoutes = require('./routes/htmlroutes');
+// const apiRoutes = require('./routes/apiroutes');
+// const htmlRoutes = require('./routes/htmlroutes');
 
 
-//server setup
-const app = express();
-const port = process.env.PORT || 3001;
+// //server setup
+// const app = express();
+// const port = process.env.PORT || 3001;
 
 
-app.listen(port, () => {
-    console.log(`server listening on port http://localhost:${port}.`);
-  });
+// app.listen(port, () => {
+//     console.log(`server listening on port http://localhost:${port}.`);
+//   });
+
+  const sequelize = require('sequelize')
+sequelize
+.sync()
+.then((res) => {
+    console.log(res);
+})
+.catch((err) => {
+    console.log(err);
+});
