@@ -14,12 +14,16 @@ Teacher.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [2,20]
+                len: [2,40]
             }
         },
-        class_id: {
+        group_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: 'group',
+                key: 'id'
+            }
         },
     },
     {

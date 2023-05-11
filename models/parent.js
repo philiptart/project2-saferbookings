@@ -24,8 +24,8 @@ Parent.init(
             isEmail: true,
             }
         },
-        student_id: {
-            type: DataTypes.INTEGER,
+        children: {
+            type: DataTypes.STRING,
             allowNull: false,
         },
     },

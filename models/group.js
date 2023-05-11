@@ -10,13 +10,18 @@ Group.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    teacher_id: {
-      type: DataTypes.INTEGER,
+    teacher: {
+      type: DataTypes.STRING,
       allowNull: false,
+      
     },
-    student_id: {
+    students: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+          model: 'student_ohh_group',
+          key: 'student_id',
+        }
     },
   },
   {

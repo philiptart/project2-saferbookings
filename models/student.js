@@ -17,17 +17,17 @@ Student.init(
                 len: [2,20]
             }
         },
-        class_id: {
+        group_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: 'group',
+                key: 'id'
+            }
         },
-        parent_id: {
-            type: DataTypes.INTEGER,
+        parents: {
+            type: DataTypes.STRING,
             allowNull: false,
-        },
-        after_school_clubs: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
         },
     },
     {
