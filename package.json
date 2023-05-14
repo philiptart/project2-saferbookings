@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/philiptart/project2-saferbookings#readme",
   "dependencies": {
+    "express-handlebars": "^7.0.7",
     "sequelize": "^6.31.1"
   }
 }
