@@ -1,23 +1,22 @@
-<form action="action_page.php" method="post">
-  <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+<form action="login" method="post">
+  <div class="topnav">
+  <img src="" alt="safer-bookings-img" class="logo">
+  <a href="#admin">Admin/Safeguarding</a>
+  <a href="#sign-up">Sign-Up</a>
+  <a href="#attendance">Check-in/out</a>
+  <a href="#login">Login</a>
+  <button id="" class="active" aria-label="click to go to dashboard"><span>Dashboard</span></button>
   </div>
 
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Username" name="username" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Password" name="psw" required>
 
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
+    <button id="" class="active" aria-label="click to sign in"><span>Sign In</span></button>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+    <a href="#forgot-password">Forgot Password?</a>
   </div>
 </form>
