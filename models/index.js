@@ -3,26 +3,28 @@ const Teacher = require('./Teacher');
 const Parent = require('./Parent');
 const Group = require('./Group');
 
-Group.hasMany(Student, {
-    foreignKey: 'group_id',
-    onDelete: 'CASCADE'
-});
-Student.belongsTo(Group, {
-    foreignKey: 'group_id'
-});
-
 Student.hasMany(Parent, {
+    foreignKey: 'children',
+});
+Parent.belongsTo(Student, {
     foreignKey: 'children',
     onDelete: 'CASCADE'
 });
-Parent.belongsTo(Student, {
-    foreignKey: 'children'
-});
 
-Group.hasOne(Teacher, {
+Group.hasMany(Student, {
+    foreignKey: 'group_id',
+});
+Student.belongsTo(Group, {
     foreignKey: 'group_id',
     onDelete: 'CASCADE'
 });
-Teacher.belongsTo(Group, {
-    foreignKey: 'group_id'
+
+Teacher.hasOne(Group, {
+    foreignKey: 'teacher_id',
 });
+Group.belongsTo(Teacher, {
+    foreignKey: 'teacher_id',
+    onDelete: 'CASCADE'
+});
+
+module.exports = { Student, Teacher, Parent, Group };
