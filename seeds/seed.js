@@ -22,7 +22,6 @@ const seedDatabase = async () => {
     };
 
     for(const student of studentData){
-        console.log(groups)
         await Student.create({
             ...student,
             group_id: groupData[Math.floor(Math.random() * groupData.length)].id

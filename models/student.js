@@ -18,10 +18,10 @@ Student.init(
                 len: [2, 40]
             }
         },
-        // parent_names: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        // },
+        parent_names: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         group_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
