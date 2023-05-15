@@ -1,7 +1,8 @@
-const Student = require('./Student');
-const Teacher = require('./Teacher');
-const Parent = require('./Parent');
-const Group = require('./Group');
+const Student = require('./student');
+const Teacher = require('./teacher');
+const Parent = require('./parent');
+const Group = require('./group');
+const Club = require('./club');
 
 Student.hasMany(Parent, {
     foreignKey: 'children',
@@ -27,4 +28,12 @@ Group.belongsTo(Teacher, {
     onDelete: 'CASCADE'
 });
 
-module.exports = { Student, Teacher, Parent, Group };
+Teacher.hasOne(Club, {
+    foreignKey: 'teacher_id',
+});
+Club.belongsTo(Teacher, {
+    foreignKey: 'teacher_id',
+    onDelete: 'CASCADE'
+});
+
+module.exports = { Student, Teacher, Parent, Group, Club };

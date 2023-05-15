@@ -1,10 +1,11 @@
 const sequelize = require("../config/connection");
-const { Group, Parent, Student, Teacher } = require("../models");
+const {Teacher, Group, Club, Student, Parent} = require("../models")
 
 const groupData = require("./groupData.json");
 const parentData = require("./parentData.json");
 const studentData = require("./studentData.json");
 const teacherData = require("./teacherData.json");
+const clubData = require("./clubData.json");
 
 
 const seedDatabase = async () => {
@@ -21,6 +22,13 @@ const seedDatabase = async () => {
         })
     };
 
+    for(const club of clubData){
+        await Club.create({
+            ...club,
+            teacher_id: teachers[Math.floor(Math.random() * teachers.length)].id
+        })
+    };
+
     for(const student of studentData){
         await Student.create({
             ...student,
@@ -31,7 +39,9 @@ const seedDatabase = async () => {
     for(const parent of parentData){
         await Parent.create({
             ...parent,
-            children: studentData[Math.floor(Math.random() * studentData.length)].id
+            children: studentData[Math.floor(Math.random() * studentData.length)].id,
+            individualHooks: true,
+            returning: true,
         })
     }
 

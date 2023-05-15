@@ -1,0 +1,27 @@
+[
+    {
+        "room": 3,
+        "day_of_club": "Monday",
+        "end_time": "4:30pm"
+    },
+    {
+        "room": 2,
+        "day_of_club": "Tuesday",
+        "end_time": "5pm"
+    },
+    {
+        "room": 5,
+        "day_of_club": "Wednesday",
+        "end_time": "4:30"
+    },
+    {
+        "room": 1,
+        "day_of_club": "Thursday",
+        "end_time": "4:30pm"
+    },
+    {
+        "room": 4,
+        "day_of_club": "Friday",
+        "end_time": "5pm"
+    }
+]
