@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-class Parent extends Model {}
+class Parent extends Model { }
 
 Parent.init(
     {
@@ -14,24 +15,35 @@ Parent.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-            len: [2,20]
+                len: [2, 40]
             }
         },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-            isEmail: true,
+                isEmail: true,
             }
         },
-        student_id: {
+
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [6],
+            },
+        },
+        children: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: "student",
+                key: "id",
+            }
         },
     },
     {
         sequelize,
-        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'parent',

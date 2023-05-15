@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-class Student extends Model {}
+class Student extends Model { }
 
 Student.init(
     {
@@ -14,28 +15,28 @@ Student.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [2,20]
+                len: [2, 40]
             }
         },
-        class_id: {
-            type: DataTypes.INTEGER,
+        parent_names: {
+            type: DataTypes.STRING,
             allowNull: false,
         },
-        parent_id: {
+        group_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: 'group',
+                key: 'id'
+            }
         },
-        after_school_clubs: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-        },
+
     },
     {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'student',
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'student',
     }
 );
 

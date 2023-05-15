@@ -5,8 +5,8 @@ const exphbs = require("express-handlebars");
 const hbs = exphbs.create();
 
 //routes
-//const apiRoutes = require('./routes/apiroutes');
-//const htmlRoutes = require('./routes/htmlroutes');
+const apiRoutes = require('./routes/apiroutes');
+const htmlRoutes = require('./routes/htmlroutes');
 
 
 //server setup
@@ -20,3 +20,4 @@ app.set("view engine", "handlebars");
 app.listen(port, () => {
     console.log(`server listening on port http://localhost:${port}.`);
   });
+  

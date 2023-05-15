@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-class Teacher extends Model {}
+class Teacher extends Model { }
 
 Teacher.init(
     {
@@ -14,17 +15,19 @@ Teacher.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [2,20]
+                len: [2, 40]
             }
         },
-        class_id: {
-            type: DataTypes.INTEGER,
+        email: {
+            type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                isEmail: true,
+            }
         },
     },
     {
         sequelize,
-        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'teacher',
